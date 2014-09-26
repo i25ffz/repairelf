@@ -10,8 +10,11 @@
 unsigned char ELF_MAGIC[] = {0x7f, 0x45, 0x4c, 0x46};
 
 int main(int argc, const char** argv) {
-	if (argc < 2)
-        printf("Usage:\n\t%s <so file>", argv[0]);
+	if (argc < 2) {
+        printf("Usage:\n\t%s <so file>\n", argv[0]);
+
+        return -1;
+	}
 
     FILE *file = fopen(argv[1], "rb+");
     if (!file) {
